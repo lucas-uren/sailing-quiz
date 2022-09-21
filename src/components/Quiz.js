@@ -10,7 +10,16 @@ const Quiz = () => {
     
     return (
         <div className = "quiz">
-            {quizState.showResults && <div>Showing result</div>}
+            {quizState.showResults && (
+                <div className="results">
+                    <div className="congratulations">Congratulations!</div>
+                    <div className="results-info">
+                        <div>You have completed the quiz.</div>
+                        <div>You got {quizState.correctAnswerCount} of {quizState.questions.length} right.</div>
+                        <div className="next-button" onClick={() => dispatch({type: "RESTART"})}>Restart</div>
+                    </div>
+                </div>
+            )}
             {!quizState.showResults && (
                 <div>
                     <div className="score">
